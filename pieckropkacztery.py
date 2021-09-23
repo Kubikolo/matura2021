@@ -1,4 +1,5 @@
 from math import ceil
+import matplotlib.pyplot as plt
 
 class Klient:
     def __init__(self, numer_klienta, liczba_osob, kod_dzielnicy, zuzycie_wody):
@@ -24,7 +25,7 @@ class Klient:
 
 
 def o_jeden_procent(wartosc, ilosc):
-    for i in range(ilosc * 12):
+    for i in range(ilosc):
         wartosc *= 1.01
         wartosc = ceil(wartosc)
     return wartosc
@@ -46,7 +47,34 @@ for klient in lepsi_klienci:
     zuzycie_wody = [int(x) for x in zuzycie_wody]
     lista_klientow.append(Klient(numer_klienta, liczba_osob, kod_dzielnicy, zuzycie_wody))
 
-styczen = 0
+miesiace = [0 for i in range(12)]
 for i in lista_klientow:
-    styczen += i.zuzycie_wody[4]
-print(o_jeden_procent(styczen, 6))
+    for j in range(12):
+        miesiace[j] += i.zuzycie_wody[j]
+
+przeplyw = 0
+rok = 0
+wynik_miesiac = 0
+wynik_rok = 0
+run = True
+while run:
+    for i in range(12):
+        przeplyw = o_jeden_procent(miesiace[i], rok)
+        if przeplyw > 160000:
+            wynik_miesiac = i
+            wynik_rok = rok
+            run = False
+            break
+    rok += 1
+
+print("Rok:", 2019 + wynik_rok, "Miesiac:", wynik_miesiac + 1)
+for i in range(1, 12):
+    for j in range(12):
+        print("Rok:", i + 2019, "Miesiac:", j + 1, "Przeplyw", o_jeden_procent(miesiace[j], i))
+
+zuzycie_2030 = []
+for i in range(12):
+    zuzycie_2030.append(o_jeden_procent(miesiace[i], 11))
+
+plt.plot(range(12), zuzycie_2030)
+plt.show()
