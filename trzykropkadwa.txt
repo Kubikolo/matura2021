@@ -1,0 +1,23 @@
+1.
+10000000 w binarnym to 128 * 1 + 64 * 0 + 32 * 0 + 16 * 0 + 8 * 0 + 4 * 0 + 2 * 0 + 1 * 0 = 128
+A9 w szestnastkowym to 16 * 10 + 1 * 9 = 169
+
+Odp: Fałsz
+
+2.
+1111 w czwórkowym to 64 * 1 + 16 * 1 + 4 * 1 + 1 * 1 = 85
+1111111 w binarnym to 64 * 1 + 32 * 1 + 16 * 1 + 8 * 1 + 4 * 1 + 2 * 1 + 1 * 1 = 127
+
+Odp: Fałsz
+
+3.
+3003 w czwórkowym to 64 * 3 + 16 * 0 + 4 * 0 + 1 * 3 = 195
+C2 w szestnastkowym to 16 * 12 + 1 * 2 = 194
+
+Odp: Prawda
+
+4.
+333 w ósemkowym to 64 * 3 + 8 * 3 + 1 * 3 = 219
+10100101 w dwójkowym to 128 * 1 + 64 * 0 + 32 * 1 + 16 * 0 + 8 * 0 + 4 * 1 + 2 * 0 + 1 * 1 = 165
+
+Odp: Prawda
