@@ -6,20 +6,20 @@ class Napis:
         if "DOPISZ" in line:
             self.string += line[-1]
         elif "ZMIEN" in line:
-            siur = list(self.string)
-            siur[-1] = line[-1]
-            self.string = "".join(siur)
+            cs = list(self.string)
+            cs[-1] = line[-1]
+            self.string = "".join(cs)
         elif "USUN" in line:
             self.string = self.string[:-1]
         elif "PRZESUN" in line:
             id = self.string.index(line[-1])
-            siur = list(self.string)
-            char = chr(ord(siur[id]) + 1)
+            cs = list(self.string)
+            char = chr(ord(cs[id]) + 1)
             if char == "[":
-                siur[id] = "A"
+                cs[id] = "A"
             else:
-                siur[id] = char
-            self.string = "".join(siur)
+                cs[id] = char
+            self.string = "".join(cs)
 
 
 n = Napis()
